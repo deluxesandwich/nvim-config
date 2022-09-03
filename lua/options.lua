@@ -24,6 +24,7 @@ opt.linebreak = true -- Wrap on word boundary
 opt.termguicolors = true -- Enable 24-bit RGB colors
 opt.laststatus = 3 -- Set global statusline, instead of having a statusline per split
 opt.timeoutlen = 200
+vim.wo.signcolumn = "yes" -- Add gutter space for diagnostics
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -67,3 +68,4 @@ vim.diagnostic.config({
         end
     }
 })
+

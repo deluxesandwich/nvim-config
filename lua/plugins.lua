@@ -91,11 +91,12 @@ require("packer").startup(function(use)
 	use("ahmedkhalf/project.nvim")
 
 	use({
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			require("lsp_lines").setup()
-		end,
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		requires = { { "nvim-lua/plenary.nvim" } },
 	})
+
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	if is_bootstrap then
 		require("packer").sync()

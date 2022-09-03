@@ -18,8 +18,11 @@ local servers = {
 	"golangci_lint_ls",
 	"gopls", -- go
 	"pyright", -- python
+	"black", -- python formatter
 	"sumneko_lua", -- lua
+	"stylua",
 	"rust_analyzer", -- rust
+    "jdtls", -- java
 }
 
 mason.setup()
@@ -101,6 +104,17 @@ lspconfig.gopls.setup({
 	},
 })
 
+-------------------------------------------------------------------------------
+-- Java
+-------------------------------------------------------------------------------
+lspconfig.jdtls.setup({
+	on_attach = function(client, bufnr)
+		lspconfig.util.default_config.on_attach(client, bufnr)
+	end,
+})
+
+
+
 -- LSP handlers configuration
 local lsp_handler = {
 	float = {
@@ -109,8 +123,7 @@ local lsp_handler = {
 		border = "rounded",
 	},
 	diagnostic = {
-		-- virtual_text = { spacing = 4, prefix = "" },
-		virtual_text = false,
+		virtual_text = { spacing = 4, prefix = "", source = true },
 		underline = true,
 		update_in_insert = false,
 		severity_sort = true,
