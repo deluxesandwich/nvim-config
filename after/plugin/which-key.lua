@@ -3,33 +3,24 @@ if not status_ok then
 	return
 end
 
-local conf = {
+which_key.setup({
 	window = {
 		padding = { 1, 1, 1, 1 },
 	},
-}
+})
 
-local opts = {
-	mode = "n", -- Normal mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = false, -- use `nowait` when creating keymaps
-}
-
-local mappings = {
+which_key.register({
 	w = { "<cmd>update!<CR>", "Save" },
 	q = { "<cmd>qa!<CR>", "Quit" },
-    ["/"] = {"<cmd>ToggleTerm<CR>", "Toggle terminal"},
+	["/"] = { "<cmd>ToggleTerm<CR>", "Toggle terminal" },
 
-    c = {
-        name = "Code",
+	c = {
+		name = "Code",
 		f = { "<cmd>FormatWriteLock<cr>", "Format" },
-    },
+	},
 
-    l = {
-        name = "LSP",
+	l = {
+		name = "LSP",
 		r = { "<cmd>Telescope lsp_references<cr>", "References" },
 		R = { "<cmd>Telescope lsp_incoming_calls<cr>", "Read usage" },
 		w = { "<cmd>Telescope lsp_outgoing_calls<cr>", "Write usage" },
@@ -37,12 +28,13 @@ local mappings = {
 		D = { "<cmd>Telescope lsp_diagnostics<cr>", "Diagnostics" },
 		t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type definitions" },
 		i = { "<cmd>Telescope lsp_implementation<cr>", "Implementation" },
-    },
+		h = { vim.lsp.buf.hover, "Hover documentation" },
+	},
 
 	f = {
 		name = "Telescope",
 		f = { "<cmd>Telescope find_files<cr>", "Find files" },
-		r = { "<cmd>Telescope live_grep<cr>", "Ripgrep" },
+		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
 		b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search current buffer" },
 		z = { "<cmd>Telescope builtin<cr>", "Builtin pickers" },
 		h = { "<cmd>Telescope help_tags<cr>", "Help" },
@@ -74,9 +66,11 @@ local mappings = {
 
 	g = {
 		name = "Git",
-		s = { "<cmd>Neogit<CR>", "Status" },
+		n = { "<cmd>Neogit<CR>", "Neogit" },
+		d = { "<cmd>Gitsigns diffthis<CR>", "Current buffer diff" },
 	},
-}
+}, {prefix = "<leader>"})
 
-which_key.setup(conf)
-which_key.register(mappings, opts)
+which_key.register({
+	K = { vim.lsp.buf.hover, "LSP documentation" },
+})

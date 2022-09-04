@@ -105,6 +105,8 @@ require("packer").startup(function(use)
 		tag = "*",
 	})
 
+	use("lewis6991/gitsigns.nvim")
+
 	if is_bootstrap then
 		require("packer").sync()
 	end

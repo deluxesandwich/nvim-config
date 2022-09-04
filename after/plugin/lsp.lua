@@ -34,6 +34,12 @@ if not status_ok then
 	return
 end
 
+-- remove hover window border
+local handlers = {
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = nil }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = nil }),
+}
+
 local lsp_defaults = {
 	flags = {
 		debounce_text_changes = 150,
@@ -42,6 +48,7 @@ local lsp_defaults = {
 	on_attach = function(client, bufnr)
 		vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
 	end,
+	handlers = handlers,
 }
 
 lspconfig.util.default_config = vim.tbl_deep_extend("force", lspconfig.util.default_config, lsp_defaults)
@@ -102,7 +109,6 @@ lspconfig.gopls.setup({
 		},
 	},
 })
-
 
 -- LSP handlers configuration
 local lsp_handler = {
