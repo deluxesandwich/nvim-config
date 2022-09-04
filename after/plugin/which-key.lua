@@ -28,7 +28,6 @@ which_key.register({
 		D = { "<cmd>Telescope lsp_diagnostics<cr>", "Diagnostics" },
 		t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type definitions" },
 		i = { "<cmd>Telescope lsp_implementation<cr>", "Implementation" },
-		h = { vim.lsp.buf.hover, "Hover documentation" },
 	},
 
 	f = {
@@ -66,7 +65,7 @@ which_key.register({
 
 	g = {
 		name = "Git",
-		n = { "<cmd>Neogit<CR>", "Neogit" },
+		s = { "<cmd>Neogit<CR>", "Neogit" },
 		d = { "<cmd>Gitsigns diffthis<CR>", "Current buffer diff" },
 	},
 }, {prefix = "<leader>"})

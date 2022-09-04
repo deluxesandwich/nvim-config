@@ -29,8 +29,8 @@ mason_lspconfig.setup({
 	ensure_installed = servers,
 })
 
-local status_ok, lspconfig = pcall(require, "lspconfig")
-if not status_ok then
+local status_ok_lsp, lspconfig = pcall(require, "lspconfig")
+if not status_ok_lsp then
 	return
 end
 
@@ -122,11 +122,6 @@ local lsp_handler = {
 		underline = true,
 		update_in_insert = false,
 		severity_sort = true,
-		float = {
-			focusable = true,
-			style = "minimal",
-			border = "rounded",
-		},
 	},
 }
 
@@ -143,9 +138,3 @@ end
 
 -- Diagnostic configuration
 vim.diagnostic.config(lsp_handler.diagnostic)
-
--- Hover configuration
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, lsp_handler.float)
-
--- Signature help configuration
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, lsp_handler.float)

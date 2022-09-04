@@ -24,6 +24,9 @@ require("packer").startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
+    -- lsp load status
+    use("j-hui/fidget.nvim")
+
 	-- file explorer
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -106,6 +109,7 @@ require("packer").startup(function(use)
 	})
 
 	use("lewis6991/gitsigns.nvim")
+
 
 	if is_bootstrap then
 		require("packer").sync()
