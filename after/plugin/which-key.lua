@@ -21,6 +21,7 @@ local opts = {
 local mappings = {
 	w = { "<cmd>update!<CR>", "Save" },
 	q = { "<cmd>qa!<CR>", "Quit" },
+    ["/"] = {"<cmd>ToggleTerm<CR>", "Toggle terminal"},
 
     c = {
         name = "Code",

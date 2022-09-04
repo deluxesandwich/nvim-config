@@ -100,6 +100,11 @@ require("packer").startup(function(use)
 
 	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+	})
+
 	if is_bootstrap then
 		require("packer").sync()
 	end

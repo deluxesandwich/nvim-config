@@ -21,9 +21,9 @@ nvim_tree.setup({
 	sort_by = "name",
 	root_dirs = {},
 	prefer_startup_root = false,
-	sync_root_with_cwd = true,
+	sync_root_with_cwd = false,
 	reload_on_bufenter = false,
-	respect_buf_cwd = true,
+	respect_buf_cwd = false,
 	on_attach = "disable", -- function(bufnr). If nil, will use the deprecated mapping strategy
 	remove_keymaps = false, -- boolean (disable totally or not) or list of key (lhs)
 	view = {
@@ -68,7 +68,7 @@ nvim_tree.setup({
 		},
 		icons = {
 			webdev_colors = true,
-			git_placement = "before",
+			git_placement = "after",
 			padding = " ",
 			symlink_arrow = " ➛ ",
 			show = {
@@ -92,8 +92,8 @@ nvim_tree.setup({
 					symlink_open = "",
 				},
 				git = {
-					unstaged = "✗",
-					staged = "✓",
+					unstaged = "",
+					staged = "",
 					unmerged = "",
 					renamed = "➜",
 					untracked = "★",

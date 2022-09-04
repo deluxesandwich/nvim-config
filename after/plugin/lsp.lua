@@ -22,7 +22,6 @@ local servers = {
 	"sumneko_lua", -- lua
 	"stylua",
 	"rust_analyzer", -- rust
-    "jdtls", -- java
 }
 
 mason.setup()
@@ -103,16 +102,6 @@ lspconfig.gopls.setup({
 		},
 	},
 })
-
--------------------------------------------------------------------------------
--- Java
--------------------------------------------------------------------------------
-lspconfig.jdtls.setup({
-	on_attach = function(client, bufnr)
-		lspconfig.util.default_config.on_attach(client, bufnr)
-	end,
-})
-
 
 
 -- LSP handlers configuration
