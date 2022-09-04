@@ -17,12 +17,10 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-	completion = {
-		keyword_length = 2,
-	},
 	formatting = {
 		format = function(entry, item)
 			item.menu = ({
+				nvim_lsp = "[LSP]",
 				luasnip = "[Snip]",
 				buffer = "[Buffer]",
 				nvim_lua = "[Lua]",
@@ -60,11 +58,12 @@ cmp.setup({
 		end, { "i", "s" }),
 	},
 	sources = {
-		{ name = "luasnip" },
-		{ name = "treesitter" },
-		{ name = "nvim_lua" },
+		{ name = "nvim_lsp" },
+		{ name = "luasnip", keyword_length = 2, max_item_count = 5 },
+		{ name = "treesitter", keyword_length = 2, max_item_count = 5 },
+		{ name = "nvim_lua", max_item_count = 5 },
 		{ name = "buffer", keyword_length = 5, max_item_count = 5 },
-		{ name = "path" },
+		{ name = "path", max_item_count = 5 },
 	},
 })
 
