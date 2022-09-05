@@ -17,6 +17,9 @@ map('', '<left>', '<nop>')
 map('', '<right>', '<nop>')
 map('n', 'K', '<nop>')
 
+-- Map Esc to exit terminal mode
+map("t", "<Esc>", "<C-\\><C-n>")
+
 -- Map Esc to jk
 map('i', 'jk', '<Esc>')
 map("t", "jk", "<C-\\><C-n>")

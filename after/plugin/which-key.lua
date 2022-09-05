@@ -44,6 +44,8 @@ which_key.register({
 	["<leader>"] = {
 		name = "Search - Telescope",
 		f = { "<cmd>Telescope find_files<cr>", "Find files" },
+		o = { "<cmd>Telescope oldfiles<cr>", "Old files" },
+		r = { "<cmd>Telescope registers<cr>", "Registers" },
 		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
 		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
 		c = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search current buffer" },
