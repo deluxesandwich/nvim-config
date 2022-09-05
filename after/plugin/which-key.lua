@@ -16,6 +16,7 @@ which_key.register({
 	c = {
 		name = "Code",
 		f = { "<cmd>FormatWriteLock<cr>", "Format" },
+        a = { vim.lsp.buf.code_action, "Code action"},
 	},
 
 	l = {
@@ -24,6 +25,7 @@ which_key.register({
 		R = { "<cmd>Telescope lsp_incoming_calls<cr>", "Read usage" },
 		w = { "<cmd>Telescope lsp_outgoing_calls<cr>", "Write usage" },
 		d = { "<cmd>Telescope lsp_definitions<cr>", "Definitions" },
+		D = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
 		t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type definitions" },
 		i = { "<cmd>Telescope lsp_implementation<cr>", "Implementation" },
 	},
