@@ -30,4 +30,4 @@ vim.api.nvim_set_keymap(
 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>",
 	{}
 )
-vim.api.nvim_set_keymap("", "s", "<cmd>HopChar1<cr>", {})
+vim.api.nvim_set_keymap("", "s", "<cmd>HopChar2<cr>", {})
